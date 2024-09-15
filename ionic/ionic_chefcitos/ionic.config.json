@@ -1,0 +1,7 @@
+{
+  "name": "ionic_chefcitos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
