@@ -10,10 +10,6 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) { }
 
-  testConnection(): Observable<string> {
-    return this.http.get(`${this.apiUrl}/recuperartodos.php`, { responseType: 'text' });
-  }
-
   alta(usuarioData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/alta.php`, usuarioData);
   }
@@ -21,4 +17,14 @@ export class DatabaseService {
   recuperar(): Observable<any> {
     return this.http.get(`${this.apiUrl}/recuperartodos.php`);
   }
+
+  baja(IdUsuarios: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/baja.php?IdUsuarios=${IdUsuarios}`);
+  }
+  
+  // Nuevo método para modificar un usuario
+  modificar(usuario: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/modificacion.php`, usuario);
+  }
 }
+
