@@ -1,5 +1,5 @@
 ion-content {
-    --background: #1a1a1a;
+    --background: #282828;
 }
 
 form {
@@ -9,12 +9,12 @@ form {
 ion-item {
     --border-radius: 8px;
     margin-bottom: 15px;
-    --background: #333333;
+    --background: #101010;
     /* Fondo gris oscuro */
 }
 
 ion-input {
-    --background: #333333;
+    --background: #101010;
     /* Fondo gris oscuro */
     --color: #ffffff;
     /* Texto blanco */
@@ -32,18 +32,20 @@ ion-label {
 ion-button {
     --background: #3880ff;
     --border-radius: 8px;
+    margin-top: 20px;
 }
 
-.register-link {
+.login-link {
     text-align: center;
+    margin-top: 15px;
 }
 
-.register-link p {
+.login-link p {
     color: #6c757d;
     font-size: 14px;
 }
 
-.register-link ion-button {
+.login-link ion-button {
     font-size: 14px;
     --padding-start: 0;
     --padding-end: 0;

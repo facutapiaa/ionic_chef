@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Buscador de Videos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input
+      placeholder="Buscar videos..."
+      [(ngModel)]="searchTerm"
+      (ionInput)="filterVideos()"
+      clear-input
+    ></ion-input>
+  </ion-item>
 
-
+  <ion-list>
+    <ion-item *ngFor="let video of filteredVideos" (click)="playVideo(video)">
+      <ion-label>
+        <h2>{{ video.title }}</h2>
+        <p>{{ video.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

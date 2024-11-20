@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm"> 
+    <ion-label>Correo Electrónico</ion-label>
+    <ion-item>
+      <ion-input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email" 
+        required 
+        email 
+        #emailField="ngModel">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="emailField.invalid && emailField.touched">
+      Por favor, introduce un correo válido.
+    </ion-text>
+  
+    <ion-label>Nombre de Usuario</ion-label>
+    <ion-item>
+      <ion-input 
+        type="text" 
+        [(ngModel)]="username" 
+        name="username" 
+        required 
+        minlength="3" 
+        #usernameField="ngModel">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="usernameField.invalid && usernameField.touched">
+      El nombre de usuario debe tener al menos 3 caracteres.
+    </ion-text>
+  
+    <ion-label>Contraseña</ion-label>
+    <ion-item>
+      <ion-input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        required 
+        minlength="6" 
+        #passwordField="ngModel">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="passwordField.invalid && passwordField.touched">
+      La contraseña debe tener al menos 6 caracteres.
+    </ion-text>
+  
+    <ion-label>Confirmar Contraseña</ion-label>
+    <ion-item>
+      <ion-input 
+        type="password" 
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword" 
+        required 
+        #confirmPasswordField="ngModel">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="!passwordsMatch() && confirmPasswordField.touched">
+      Las contraseñas no coinciden.
+    </ion-text>
+  
+    <ion-button expand="block" type="submit" [disabled]="registerForm.invalid || !passwordsMatch()">
+      Registrarse
+    </ion-button>
+  </form>
+  
+
+  <div class="login-link">
+    <p>¿Ya tienes una cuenta?
+      <ion-button fill="clear" color="primary" [routerLink]="['/tabs/tab3']">Inicia Sesión aquí</ion-button>
+    </p>
+  </div>
+</ion-content>
